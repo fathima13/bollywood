@@ -1,0 +1,18 @@
+Name: <%= @actor.name%><br>
+Age:  <%= @actor.age%><br>
+Country: <%= @actor.country %><br>
+<br><br>
+<% if @actor.movies.present? %>
+<% @actor.movies.each do |movie|%>
+	Name: <%= movie.name%> |
+	Status: <%= movie.status%> |
+	Director_Name: <%= movie.director_name%> |
+	Club: <%= movie.club%>
+	| <%= link_to 'edit',edit_actor_movie_url(@actor.id,movie.id)%>
+	| <%= link_to 'delete',actor_movie_url(@actor.id,movie.id), method: :delete %>
+
+	<br>
+<%end%>
+<% else %>
+	<p>No movies</p>
+<% end %>

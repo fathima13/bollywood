@@ -1,0 +1,14 @@
+<% if @actors.present? %>
+	<% @actors.each do |f|%>
+		Name : <%= f.name %><br>
+		Age : <%= f.age %><br>
+		Country: <%= f.country %><br>
+
+		<%= link_to 'edit', edit_actor_url(f.id)%> |
+		<%= link_to 'show', actor_url(f.id)%> |
+		<%= link_to 'delete', actor_url(f.id) , method: :delete %> |
+		<%= link_to 'Add movies', new_actor_movie_url(f.id)%>
+		<br><br>
+	<% end %>
+<% end %>
+<p>please <%= link_to 'Add', new_actor_url%></p> 

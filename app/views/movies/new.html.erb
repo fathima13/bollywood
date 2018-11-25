@@ -1,0 +1,15 @@
+<%= form_for [@actor,@movie] do |f| %>
+	<% if @movie.errors.any? %>
+		<h1>Errors:</h1>
+		<ul>
+			<% @movie.errors.full_messages.each do |message| %>
+			<li> <%= message %> </li>
+			<%end%>
+		</ul>
+	<%end%>
+Name: <%= f.text_field :name %> <br>
+Status: <%= f.select(:status, Movie::CLASS_LIST)  %> <br> 
+Director_Name: <%= f.text_field :director_name %> <br>
+Club: <%= f.select(:club, Movie::CLASS_LIST)  %> <br> 
+<%= f.submit 'submit'%>
+<% end %>
